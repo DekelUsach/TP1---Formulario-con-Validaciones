@@ -1,48 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-    <div class="registration-container">
-        <div class="header-logo">
-            <img src="..\Images\Logo-Chaskifud.png" alt="Chaskifud Logo" class="logo-image">
-        </div>
-        <form method="post" class="registration-form">
-            <div class="form-row">
-                <input type="text" class="input-field" placeholder="Nombre" id="name">
-            </div>
-            <div class="msg" id="aviso"></div>
-
-            <input type="text" class="input-field" placeholder="Email" id ="email" >
-            <div class="msg" id="avisoMail"></div>
-
-            <input type="password" class="input-field" placeholder="Contraseña" id="password">
-            <div class="msg" id="avisoPasswordLetra"></div>
-            <div class="msg" id="avisoPasswordNumero"></div>
-            <div class="msg" id="avisoPasswordLongitud"></div>
-
-            <input type="password" class="input-field" placeholder="Confirmar contraseña" id="passwordConfirmation">
-            <div class="msg" id="avisoPassword"></div>
-
-            <button type="submit" class="submit-button">Enviar</button>
-        </form>
-        <div class= "avisoGeneral"></div>
+  <div class="registration-container">
+    <div class="header-logo">
+      <img src="..\Images\Logo-Chaskifud.png" alt="Chaskifud Logo" class="logo-image">
     </div>
-    
-
-    <script src="javascript.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
-
+    <form method="post" class="registration-form">
+      <div class="form-row">
+        <input type="text" class="input-field" placeholder="Nombre" id="name">
+      </div>
+      <div class="msg" id="aviso"></div>
+      <input type="text" class="input-field" placeholder="Email" id="email">
+      <div class="msg" id="avisoMail"></div>
+      <input type="password" class="input-field" placeholder="Contraseña" id="password">
+      <div class="msg" id="avisoPasswordLetra"></div>
+      <div class="msg" id="avisoPasswordNumero"></div>
+      <div class="msg" id="avisoPasswordLongitud"></div>
+      <input type="password" class="input-field" placeholder="Confirmar contraseña" id="passwordConfirmation">
+      <div class="msg" id="avisoPassword"></div>
+      <button type="submit" class="submit-button">Enviar</button>
+    </form>
+    <div class="avisoGeneral"></div>
+  </div>
+  
+  <script src="javascript.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
 </body>
-
 </html>
