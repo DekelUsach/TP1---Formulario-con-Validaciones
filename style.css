@@ -90,3 +90,31 @@
     font-size: 13px;
     color: red;
     }
+
+
+    /* Avisos */
+#avisoPasswordLetra1{
+    color: green;
+}
+#avisoPasswordNumero1{
+    color: green;
+}
+#avisoPasswordLongitud1{
+    color: green;
+}
+
+#aviso1{
+    color: green;
+}
+#avisoMail{
+    color: green;
+}
+#avisoPassword{
+    color: green;
+}
+.avisoGeneral{
+    color: red;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 10px;
+}
