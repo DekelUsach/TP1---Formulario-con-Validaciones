@@ -138,3 +138,40 @@
     }
   }
   
+  /* Modo oscuro */
+  .modo-oscuro {
+    background: #121212;
+    color: white;
+}
+
+.modo-oscuro .registration-container {
+    background: #1e1e1e;
+    color: white;
+}
+
+.modo-oscuro .input-field {
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+.modo-oscuro .submit-button {
+    background-color: #ff9900;
+}
+
+.cambiar-tema {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 8px 15px;
+    background: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.modo-oscuro .cambiar-tema {
+    background: #666;
+    color: white;
+}

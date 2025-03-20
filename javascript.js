@@ -19,10 +19,10 @@ let regex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
 nombre.addEventListener("input", () => {
     if (nombre.value.length < Min_Length) {
         avisoNombre.innerHTML = "Tiene que tener más de 3 letras";
-        avisoNombre.id = "aviso"; 
+        avisoNombre.id = "aviso";
     } else {
         avisoNombre.innerHTML = "Nombre correcto";
-        avisoNombre.id = "aviso1"; 
+        avisoNombre.id = "aviso1";
     }
 });
 
@@ -86,7 +86,7 @@ form.addEventListener("submit", (event) => {
         avisoNombre.innerHTML = "Nombre correcto";
         avisoNombre.id = "aviso1";
     }
-    
+
     if (!checkEmail(email)) {
         avisoMailText.innerHTML = "Tiene que ser un mail válido";
         avisoMailText.id = "avisoMail1";
@@ -94,13 +94,13 @@ form.addEventListener("submit", (event) => {
         avisoMailText.innerHTML = "Email correcto";
         avisoMailText.id = "avisoMail";
     }
-    
+
     let valor = password.value;
     let tieneLetra = /[a-zA-Z]/.test(valor);
     let tieneNumero = /\d/.test(valor);
     let tieneLongitudMinima = valor.length >= 8;
     avisoPasswordFn(tieneLetra, tieneNumero, tieneLongitudMinima);
-    
+
     if (passwordConfirmation.value !== password.value) {
         avisoPasswordText.innerHTML = "La contraseña no es la misma";
         avisoPasswordText.id = "avisoPassword1";
@@ -108,15 +108,33 @@ form.addEventListener("submit", (event) => {
         avisoPasswordText.innerHTML = "La contraseña es la misma";
         avisoPasswordText.id = "avisoPassword";
     }
-    
-    if (
-        nombre.value.length < Min_Length ||
-        !checkEmail(email) ||
-        !regex.test(password.value) ||
-        passwordConfirmation.value !== password.value
-    ) {
+
+    if (nombre.value.length < Min_Length || !checkEmail(email) || !regex.test(password.value) || passwordConfirmation.value !== password.value) {
         event.preventDefault();
         avisoGeneral.innerHTML = "¡Ingrese los campos de manera correcta!";
+        anime({
+            targets: avisoGeneral,
+            opacity: [0, 1],
+            duration: 1000,
+            easing: 'linear'
+        });
+        setTimeout(() => {
+            anime({
+                targets: avisoGeneral,
+                opacity: [1, 0],
+                duration: 2000,
+                easing: 'linear'
+            });
+        }, 3000);
+        setTimeout(() => {
+            avisoGeneral.innerHTML = "";
+        }, 5300);
+    }
+    else
+    {
+        // A pesar de que el event.preventDefault() no debería estar acá porque el formulario se envia, lo puse para que no tire un error y se pueda mostrar el mensaje de exito en la misma pagina. Si el caso no fuese así, no estaría puesto
+        event.preventDefault(); 
+        avisoGeneral.innerHTML = `Formulario enviado correctamente!`
         anime({
             targets: avisoGeneral,
             opacity: [0, 1],
@@ -140,3 +158,36 @@ form.addEventListener("submit", (event) => {
 function checkEmail(email) {
     return email.value.includes('@');
 }
+
+
+
+
+// Opcionales
+
+// Modo oscuro
+document.addEventListener("DOMContentLoaded", () => {
+    const botonModo = document.createElement("button");
+    botonModo.innerText = "Modo Oscuro";
+    botonModo.classList.add("cambiar-tema");
+    document.body.appendChild(botonModo);
+    
+    function aplicarTema(tema) {
+        if (tema === "oscuro") {
+            document.body.classList.add("modo-oscuro");
+            botonModo.innerText = "Modo Claro";
+        } else {
+            document.body.classList.remove("modo-oscuro");
+            botonModo.innerText = "Modo Oscuro";
+        }
+    }
+
+    const temaGuardado = localStorage.getItem("tema") || "claro";
+    aplicarTema(temaGuardado);
+    
+    botonModo.addEventListener("click", () => {
+        const nuevoTema = document.body.classList.contains("modo-oscuro") ? "claro" : "oscuro";
+        localStorage.setItem("tema", nuevoTema);
+        aplicarTema(nuevoTema);
+    });
+});
+
