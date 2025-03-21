@@ -2,5 +2,5 @@
 2) Agregué todas las validaciones que pedia la consigna (no opcional). Si no se cumplen las condiciones de cada validacion,
 no se permite enviar el formulario y se le dice avisa al usuario que llene el campo de manera correcta.
 3) Lo mas complicado fue en donde poner el event.preventDefault(), me costo mucho entender en donde ponerlo
-4) Los extras
+4) Los extras que no llegué a hacer
 

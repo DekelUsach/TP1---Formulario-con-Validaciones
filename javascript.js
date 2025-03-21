@@ -46,11 +46,20 @@ password.addEventListener("input", () => {
 
 passwordConfirmation.addEventListener("input", () => {
     if (passwordConfirmation.value !== password.value) {
-        avisoPasswordText.innerHTML = "La contraseña no es la misma";
-        avisoPasswordText.id = "avisoPassword1";
+        if(password.value != ""){
+            avisoPasswordText.innerHTML = "La contraseña no es la misma";
+            avisoPasswordText.id = "avisoPassword1";    
+        }
+        else{
+            avisoPasswordText.id = "avisoPassword1";    
+            avisoPasswordText.innerHTML = "Todavia no ha ingresado una contraseña para validar!";
+        }
     } else {
         avisoPasswordText.innerHTML = "La contraseña es la misma";
         avisoPasswordText.id = "avisoPassword";
+    }
+    if(passwordConfirmation.value == ""){
+        avisoPasswordText.innerHTML = "";
     }
 });
 
@@ -112,6 +121,7 @@ form.addEventListener("submit", (event) => {
     if (nombre.value.length < Min_Length || !checkEmail(email) || !regex.test(password.value) || passwordConfirmation.value !== password.value) {
         event.preventDefault();
         avisoGeneral.innerHTML = "¡Ingrese los campos de manera correcta!";
+        avisoGeneral.classList = "errorAG"
         anime({
             targets: avisoGeneral,
             opacity: [0, 1],
@@ -135,6 +145,18 @@ form.addEventListener("submit", (event) => {
         // A pesar de que el event.preventDefault() no debería estar acá porque el formulario se envia, lo puse para que no tire un error y se pueda mostrar el mensaje de exito en la misma pagina. Si el caso no fuese así, no estaría puesto
         event.preventDefault(); 
         avisoGeneral.innerHTML = `Formulario enviado correctamente!`
+        avisoGeneral.classList = "correctoAG"
+        nombre.value =""
+        email.value = ""
+        password.value = ""
+        passwordConfirmation.value = ""
+       avisoMailText.innerHTML = ""
+       avisoNombre.innerHTML = ""
+       avisoPasswordLetra.innerHTML = ""
+       avisoPasswordLongitud.innerHTML = ""
+       avisoPasswordNumero.innerHTML=""
+       avisoPasswordText.innerHTML= ""
+
         anime({
             targets: avisoGeneral,
             opacity: [0, 1],
